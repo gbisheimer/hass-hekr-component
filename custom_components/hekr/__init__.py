@@ -23,6 +23,7 @@ from hekrapi.exceptions import HekrAPIException, AuthenticationFailedException
 
 from .const import (
     CONF_DOMAINS,
+    PLATFORMS,
     DOMAIN,
     CONF_DEVICES,
     CONF_ACCOUNTS,
@@ -275,7 +276,7 @@ async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
         )
         return False
 
-    await hass.config_entries.async_forward_entry_setups(entry, CONF_DOMAINS)
+    await hass.config_entries.async_forward_entry_setups(entry, PLATFORMS)
 
     _LOGGER.debug('Successfully set up device with ID "%s"', device_id)
     return True
